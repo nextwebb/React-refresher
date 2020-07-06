@@ -4,7 +4,8 @@ class Footer extends Component{
 
     state = {
         name: '',
-        age: 35
+        age: 10,
+        isLogin:false
     }
 
     componentDidMount() {
@@ -20,10 +21,22 @@ class Footer extends Component{
     render() {
         return (
             <div>
-                <h2 onClick={this.props.myalert}>
-                    {this.props.trademark} 
-                </h2>
-                <input value={this.state.name} onChange={this.changed} />
+               
+
+            { this.state.isLogin ? (
+                    <React.Fragment>
+                        <h2 onClick={this.props.myalert}>
+                            {this.props.trademark} 
+                        </h2>
+                        <input value={this.state.name} onChange={this.changed}/>
+                    </React.Fragment>
+                ) : (
+                    <React.Fragment>  
+                        <h2> You can't see this content </h2>
+                        <h2> You must be logged in </h2>
+                    </React.Fragment>
+                )  
+            }
             </div>
         )
           
