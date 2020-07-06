@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-
+import { CtxConsumer} from '../index'
 class Footer extends Component{
 
     state = {
@@ -19,19 +19,25 @@ class Footer extends Component{
     }
    
     render() {
-        const animals = ['cat', 'dog', 'horse'];
+        //const animals = ['cat', 'dog', 'horse'];
         return (
-            <div>
-               { animals.map((animal)=> {
-                   return (
-                       <div key={animal}>
-                            <h1>{animal} </h1>
-                            <h1>{animal} </h1>
-                       </div>
-                    
-                   ) 
-               }) }
-            </div>
+            <CtxConsumer>
+                {
+                    (context) => (
+                        <div>
+                             { context.animals.map((animal)=> {
+                                return (
+                                    <div key={animal}>
+                                        <h1>{animal} </h1>
+                                        <h1>{animal} </h1>
+                                    </div>
+                                
+                                ); 
+                            }) }
+                        </div>
+                    )
+                }
+            </CtxConsumer>
         )
           
         

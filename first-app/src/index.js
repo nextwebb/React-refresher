@@ -7,14 +7,21 @@ import Footer from './components/footer'
 import * as serviceWorker from './serviceWorker';
 import { Route,BrowserRouter} from 'react-router-dom'
 
+const context = React.createContext();
+export const CtxConsumer = context.Consumer;
+
+const animals = ['snake', 'elephant', 'lion'];
+
 const routing = (
-  <BrowserRouter>
-    <div>
-      <Route exact path="/" component={App}></Route>
-      <Route path="/header" component={Header}></Route>
-      <Route path="/footer" component={Footer}></Route>
-    </div>
-  </BrowserRouter>
+    <BrowserRouter>
+        <context.Provider value={{animals:animals}}>
+            <div>
+                <Route exact path="/" component={App}></Route>
+                <Route path="/header" component={Header}></Route>
+                <Route path="/footer" component={Footer}></Route>
+            </div>
+        </context.Provider>
+    </BrowserRouter>
 )
 ReactDOM.render(routing, document.getElementById('root')
 );
