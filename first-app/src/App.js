@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './components/header'
 import Footer from './components/footer'
+import Numbers from './components/numbers'
 import styled from 'styled-components'
 
 
@@ -21,10 +22,7 @@ const Paragraph = styled.p`
 function App() {
     return (
       <div className="App">
-        <Header info="This is my message" myNumber="6" />
-        <p style={pStyle}>Main content</p>
-        <Paragraph>New styled</Paragraph>
-        <Footer trademark="page by nextwebb" myalert={createAlert} />
+        <Numbers></Numbers>
       </div>
     );
  
