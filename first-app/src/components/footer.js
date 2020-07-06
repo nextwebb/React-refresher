@@ -3,8 +3,14 @@ import React, { Component} from 'react';
 class Footer extends Component{
 
     state = {
-        name: 'nextwebb'
+        name: '',
+        age: 35
     }
+
+    componentDidMount() {
+        this.setState({name: 'my name'})
+    }
+   
 
     changed = e => {
         this.setState({name: e.target.value})
