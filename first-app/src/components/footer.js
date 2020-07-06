@@ -1,8 +1,14 @@
 import React, { Component} from 'react';
 
 class Footer extends Component{
-    changed(e) {
-        console.log('changed')
+
+    state = {
+        name: 'nextwebb'
+    }
+
+    changed = e => {
+        this.setState({name: e.target.value})
+        console.log(this.state.name);
     }
    
     render() {
@@ -11,7 +17,7 @@ class Footer extends Component{
                 <h2 onClick={this.props.myalert}>
                     {this.props.trademark} 
                 </h2>
-                <input  onChange={this.changed} />
+                <input value={this.state.name} onChange={this.changed} />
             </div>
         )
           
